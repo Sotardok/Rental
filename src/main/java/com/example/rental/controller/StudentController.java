@@ -37,7 +37,6 @@ public class StudentController {
 		if(result.hasErrors()) {
 			return "add-student";
 		}
-		
 		this.studentRepository.save(student);
 		return "redirect:list";
 	}
