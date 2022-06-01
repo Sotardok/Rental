@@ -76,7 +76,7 @@ public class PinjamController {
         kembalikan1.setHarga(mobil.getHarga());
         kembalikan1.setPinjamId(Math.toIntExact(id));
         kembalikan1.setPeminjam(pinjam1.getNama());
-        kembalikan1.setPeminjam(pinjam1.getNIK());
+        kembalikan1.setNIK(pinjam1.getNIK());
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();

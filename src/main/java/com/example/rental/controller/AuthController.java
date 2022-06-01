@@ -54,7 +54,10 @@ public class AuthController {
     }
 
     @PostMapping("login")
-    public String login(@Valid Account account, BindingResult result, Model model){
-        return "home-login";
+    public String login(@Valid Account account, BindingResult result, Model model, LoginRequest loginRequest){
+        if(accountRepository.countByUsernameAndPassword(account.getUsername(), account.getPassword()) >0){
+            return "home-login";
+        }
+        return "login";
     }
 }
