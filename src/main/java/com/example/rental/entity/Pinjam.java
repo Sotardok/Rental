@@ -24,6 +24,28 @@ public class Pinjam {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "date")
+    private String date;
+
+    @Column(name = "mobil_id")
+    private int mobil_id;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public int getMobil_id() {
+        return mobil_id;
+    }
+
+    public void setMobil_id(int mobil_id) {
+        this.mobil_id = mobil_id;
+    }
+
     public long getId() {
         return id;
     }
@@ -75,12 +97,14 @@ public class Pinjam {
     public Pinjam() {
     }
 
-    public Pinjam(long id, String nama, String NIK, String alamat, String noTelp, String email) {
+    public Pinjam(long id, String nama, String NIK, String alamat, String noTelp, String email, int mobil_id, String date) {
         this.id = id;
         this.nama = nama;
         this.NIK = NIK;
         this.alamat = alamat;
         this.noTelp = noTelp;
         this.email = email;
+        this.mobil_id = mobil_id;
+        this.date = date;
     }
 }

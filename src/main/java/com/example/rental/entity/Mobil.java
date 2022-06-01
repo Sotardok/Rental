@@ -25,12 +25,12 @@ public class Mobil {
     private int harga;
 
     @Column(name = "status")
-    private int status;
+    private String status;
 
     public Mobil() {
     }
 
-    public Mobil(long id, String merk, String type, String tahunProduksi, String noPolisi, int harga, int status) {
+    public Mobil(long id, String merk, String type, String tahunProduksi, String noPolisi, int harga, String status) {
         this.id = id;
         this.merk = merk;
         this.type = type;
@@ -88,11 +88,11 @@ public class Mobil {
         this.harga = harga;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 }

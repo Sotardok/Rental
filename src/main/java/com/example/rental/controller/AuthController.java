@@ -34,6 +34,12 @@ public class AuthController {
         model.addAttribute("account", this.accountRepository.findAll());
         return "home";
     }
+
+    @GetMapping("/log")
+    public String home(Model model) {
+        return "home-login";
+    }
+
     @PostMapping("account/add")
     public String addStudent(@Valid Account account, BindingResult result, Model model) {
         if(result.hasErrors()) {
@@ -49,6 +55,6 @@ public class AuthController {
 
     @PostMapping("login")
     public String login(@Valid Account account, BindingResult result, Model model){
-        return "home";
+        return "home-login";
     }
 }
