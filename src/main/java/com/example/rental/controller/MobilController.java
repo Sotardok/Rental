@@ -1,7 +1,6 @@
 package com.example.rental.controller;
 
 import com.example.rental.entity.Mobil;
-import com.example.rental.entity.Student;
 import com.example.rental.repository.MobilRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,10 +27,16 @@ public class MobilController {
     @PostMapping("add")
     public String add(@Valid Mobil mobil, BindingResult result, Model model) {
         if(result.hasErrors()) {
-            return "add-student";
+            return "add-mobil";
         }
         this.mobilRepository.save(mobil);
         return "redirect:list";
+    }
+
+    @GetMapping("list")
+    public String students(Model model) {
+        model.addAttribute("mobil", this.mobilRepository.findAll());
+        return "mobil-view";
     }
 
 }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Mobil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+</head>
+
+<body style="background-color: #2782dc">
+<div class="container my-2">
+    <div class="card">
+        <div class="card-body">
+            <div th:switch="${mobil}" class="container my-5">
+                <p class="my-5">
+                    <a href="/mobil/showForm" class="btn btn-primary"><i
+                            class="fas fa-user-plus ml-2"> Add Mobil</i></a>
+                    <a href="/" class="btn btn-secondary"><i
+                            class="fas fa-exit ml-2"> Exit</i></a>
+                </p>
+                <div class="col-md-10">
+                    <h2 th:case="null">No Mobil yet!</h2>
+                    <div th:case="*">
+                        <table class="table table-striped table-responsive-md">
+                            <thead>
+                            <tr>
+                                <th>Merk Mobil</th>
+                                <th>Type Mobil</th>
+                                <th>Tahun Produksi</th>
+                                <th>No Polisi</th>
+                                <th>Harga Sewa</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="mobil : ${mobil}">
+                                <td th:text="${mobil.merk}"></td>
+                                <td th:text="${mobil.type}"></td>
+                                <td th:text="${mobil.tahunProduksi}"></td>
+                                <td th:text="${mobil.noPolisi}"></td>
+                                <td th:text="${mobil.harga}"></td>
+                                <td th:text="${mobil.status}"></td>
+                                <td><a th:href="@{/pinjam/showForm/{id}(id=${mobil.id})}"  class="btn btn-secondary">pinjam</a></td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

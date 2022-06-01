@@ -17,7 +17,7 @@
     <div class="card">
         <div class="card-body">
             <div class="col-md-10">
-                <form action="#" th:action="@{/pinjam/add}" th:object="${pinjam}" method="post">
+                <form action="#" th:action="@{/pinjam/add/{id}(id=${mobil.id})}" th:object="${pinjam}" method="post">
                     <div class="row">
                         <div class="form-group col-md-8">
                             <label for="name" class="col-form-label">Nama</label> <input type="text" th:field="*{nama}" class="form-control" id="name" placeholder="Name"> <span th:if="${#fields.hasErrors('nama')}" th:errors="*{nama}" class="text-danger"></span>
@@ -40,9 +40,7 @@
 
                         <div class="col-md-6">
                             <input type="submit" class="btn btn-primary" value="Save">
-                        </div>
-
-                        <div class="form-group col-md-8"></div>
+                    </div>
 
                     </div>
                 </form>
